@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07152f"><title>RZD Digital Bank</title>
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="ambient"></div>
+<aside class="sidebar" id="sidebar">
+  <a class="brand" href="#"><img src="assets/logo.svg"><span>RZD<small>DIGITAL BANK</small></span></a>
+  <nav>
+    <button class="nav active" data-page="overview">▦ <span>Dashboard</span></button>
+    <button class="nav" data-page="transactions">⇄ <span>Transaksi</span></button>
+    <button class="nav" data-page="reports">▥ <span>Laporan</span></button>
+    <button class="nav" data-page="profile">◎ <span>Profil</span></button>
+  </nav>
+  <div class="side-bottom"><div class="secure">✦ <span>DEMO ENVIRONMENT<br><small>Data tersimpan di browser ini</small></span></div><button id="logout" class="logout">Keluar ↗</button></div>
+</aside>
+<main class="main">
+<header class="topbar"><button class="menu" id="menu">☰</button><div><small class="muted">RZD / <span id="crumb">Dashboard</span></small><h2 id="pageTitle">Dashboard</h2></div><div class="user"><div class="avatar">R</div><div><b id="helloName">Rezaldi</b><small>Personal account</small></div></div></header>
+<section id="loginView" class="login-wrap hidden">
+ <div class="login-card"><img src="assets/logo.svg" class="login-logo"><p class="eyebrow">WELCOME TO THE FUTURE</p><h1>Keuangan lebih<br><em>terkendali.</em></h1><p class="muted">Masuk ke ruang finansial RZD Anda.</p>
+ <form id="loginForm"><label>Nama pengguna</label><input id="loginName" placeholder="Masukkan nama" required><label>Password demo</label><input id="loginPass" type="password" placeholder="Bebas untuk demo" required><button class="primary full">Masuk ke dashboard <span>→</span></button></form>
+ <p class="hint">Demo lokal: data hanya tersimpan pada browser perangkat ini. Jangan gunakan password asli.</p></div>
+</section>
+<section id="appView">
+<div class="welcome"><div><p class="eyebrow">RABU, 19 NOVEMBER 2026</p><h1>Selamat datang, <span id="welcomeName">Rezaldi</span>.</h1><p class="muted">Pantau dan kelola catatan keuangan Anda.</p></div><div class="live-pill"><i></i> DEMO ACTIVE</div></div>
+<div class="grid stats">
+ <article class="balance-card"><div class="card-top"><span>Total saldo simulasi</span><span class="chip">● RZD WALLET</span></div><p class="balance" id="balance">Rp 12.500.000</p><div class="card-foot"><span>•••• &nbsp;•••• &nbsp;•••• &nbsp; 2048</span><span>RZD / IDR</span></div><div class="orb"></div></article>
+ <article class="stat"><span class="stat-icon green">↗</span><small>Total pemasukan</small><h2 id="income">Rp 0</h2><small class="positive">Bulan ini</small></article>
+ <article class="stat"><span class="stat-icon red">↘</span><small>Total pengeluaran</small><h2 id="expense">Rp 0</h2><small class="muted">Bulan ini</small></article>
+</div>
+<div class="grid content-grid">
+ <article class="panel chart-panel"><div class="panel-head"><div><p class="eyebrow">OVERVIEW</p><h3>Arus keuangan</h3></div><span class="chip">7 hari terakhir</span></div><canvas id="financeChart" height="120"></canvas></article>
+ <article class="panel quick"><div class="panel-head"><div><p class="eyebrow">QUICK ACTION</p><h3>Tambah catatan</h3></div></div>
+ <form id="transactionForm"><label>Jenis transaksi</label><select id="type"><option value="income">Pemasukan</option><option value="expense">Pengeluaran</option></select><label>Deskripsi</label><input id="description" placeholder="Contoh: Uang saku" required><label>Nominal (Rp)</label><input id="amount" type="number" min="1" placeholder="100000" required><button class="primary full">Simpan transaksi <span>＋</span></button></form>
+ </article>
+</div>
+<article class="panel table-panel"><div class="panel-head"><div><p class="eyebrow">ACTIVITY</p><h3>Transaksi terbaru</h3></div><button class="text-btn" data-goto="transactions">Lihat semua →</button></div><div class="table-scroll"><table><thead><tr><th>Deskripsi</th><th>Tanggal</th><th>Jenis</th><th>Nominal</th></tr></thead><tbody id="recentRows"></tbody></table></div></article>
+<div class="disclaimer">RZD Digital Bank adalah prototipe edukasi pencatatan keuangan. Tidak menyediakan rekening, transfer, pembayaran, atau layanan perbankan sungguhan.</div>
+</section>
+<section id="otherPage" class="hidden"></section>
+</main>
+<script src="assets/app.js"></script>
+</body></html>
